@@ -5,6 +5,6 @@ services:
   - docker
 
 script:
-  - echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
+  - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
   - docker build -t zabbix-server .
   - docker push $DOCKER_USERNAME/zabbix-server-ta
