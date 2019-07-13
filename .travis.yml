@@ -1,0 +1,7 @@
+language: bash
+services: docker
+
+script:
+    - docker build -t zabbix . \
+    && echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin \
+    && docker push homodefamatus/zabbix-server-ta:latest
